@@ -11,7 +11,7 @@ import { TitleComponent } from '@shared/title/title.component';
   template: `
     <shared-title title="View Transition"/>
 
-    <section class="flex justify-start">
+    <section class="flex justify-end">
 
       <img
         srcset="https://picsum.photos/id/237/200/300"
@@ -22,7 +22,7 @@ import { TitleComponent } from '@shared/title/title.component';
 
       />
 
-      <div class="bg-blue-400 w-56 h-56"
+      <div class="bg-blue-800 w-36 h-36"
         style="view-transition-name: hero2;">
 
       </div>

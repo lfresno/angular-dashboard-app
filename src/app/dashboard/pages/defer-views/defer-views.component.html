@@ -1,1 +1,36 @@
-<p>defer-views works!</p>
+<shared-title title="Defered Views"></shared-title>
+
+
+<section class="grid grid-cols-1">
+
+  <!-- se usa defer para mejorar la experiencia de usuario cuando se tienen que cargar componentes pesados.
+  En este caso se está usando un componente bloqueantes para simular ese efceto.
+
+  Si hay varios componentes bloqueantes, estos se van cargando de uno en uno.
+  Gracias al trigger on viewport, los elementos que no se estén mosrando en la pantalla, no se cargan. De esta forma, el usuario no tiene que
+  estar esperando a que cargue algo que no va a ver. Hay muchos mas triggers (en defered options se usan algunos)-->
+  @defer ( on viewport ) {
+    <shared-heavy-loaders-slow cssClass="bg-blue-500"/>
+
+  } @placeholder {
+    <p> Cargando ...</p>
+  }
+
+  @defer (on viewport ) {
+    <shared-heavy-loaders-slow cssClass="bg-red-500"/>
+
+  } @placeholder {
+    <p> Cargando ...</p>
+  }
+
+  @defer (on viewport ) {
+    <shared-heavy-loaders-slow cssClass="bg-green-500"/>
+
+  } @placeholder {
+    <p> Cargando ...</p>
+  }
+
+</section>
+
+
+

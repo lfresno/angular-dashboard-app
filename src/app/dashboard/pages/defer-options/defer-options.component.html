@@ -1,1 +1,103 @@
-<p>defer-options works!</p>
+<shared-title title="Defer Triggers"></shared-title>
+
+<section>
+  <h1 class="text-xl">Interacciones</h1>
+  <hr class="my-2">
+
+  @defer (on interaction) { <!-- Al interactuar, se ejecuta y carga los componentes entre estas llaves -->
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span> On Interaction </span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      Click en el div
+    </div>
+  }
+
+</section>
+
+<section>
+  <hr class="my-2">
+
+  <button
+    #btnInteraction
+    class="p-2 bg-blue-200 hover:bg-blue-400 transition-all rounded text-black my-2">
+    Click me!
+  </button>
+
+  @defer (on interaction( btnInteraction )) { <!-- Al interactuar CON OTRO ELEMENTO, se ejecuta y carga los componentes entre estas llaves -->
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span> On Interaction </span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      Click en el BOTÓN
+    </div>
+  }
+
+</section>
+
+<section>
+  <hr class="my-2">
+
+  <!-- Si no se referencia otro elemento, la interacción salta al pasar por encima del div-->
+  @defer (on hover( btnInteraction )) { <!-- Al pasar el ratón por encima, se ejecuta y carga los componentes entre estas llaves -->
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span> On Interaction </span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      Acércate al botón
+    </div>
+  }
+
+</section>
+
+<section>
+  <hr class="my-2">
+
+  @defer (on immediate) { <!-- En cuanto pueda cargar, se ejecuta y carga los componentes entre estas llaves -->
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span> On Interaction </span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      En cuanto pueda
+    </div>
+  }
+
+</section>
+
+<section>
+  <hr class="my-2">
+
+  @defer (on timer(2000)) { <!-- En cuanto pueda termine el tiempo, se ejecuta y carga los componentes entre estas llaves -->
+    <app-heavy-loaders-fast cssClass="bg-green-500 h-20">
+      <span> On Interaction </span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      Cuando termine el timer
+    </div>
+  }
+
+</section>
+
+<section>
+  <hr class="my-2">
+
+  @defer (on hover; prefetch on idle) { <!-- Cuando se haga el hover, se ejecuta. Mientras, se va preparando el idle -->
+    <app-heavy-loaders-fast cssClass="bg-green-500 h-20">
+      <span> On hover, idle </span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      Hover
+    </div>
+  }
+
+</section>
+
+
+
+

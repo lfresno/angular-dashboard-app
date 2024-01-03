@@ -37,8 +37,13 @@ export const routes: Routes = [
       },
       {
         path: 'view-transition',
-        title: 'View Transition',
+        title: 'View Transition 1',
         loadComponent: () => import('./dashboard/pages/view-transition/view-transition.component'),
+      },
+      {
+        path: 'view-transition-2',
+        title: 'View Transition 2',
+        loadComponent: () => import('./dashboard/pages/view-transition/view-transition2.component'),
       },
       {
         path: '**',
